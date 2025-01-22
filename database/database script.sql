@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `turnos_app`.`administrador` ;
 
 CREATE TABLE IF NOT EXISTS `turnos_app`.`administrador` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `apellido` VARCHAR(45) NOT NULL,
   `tipo_documento_id` INT UNSIGNED NOT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `turnos_app`.`administrador` (
   `sexo_id` INT UNSIGNED NOT NULL,
   `email` VARCHAR(45) NULL,
   `fecha_nacimiento` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `rol_id` INT UNSIGNED NOT NULL,
   `estado_id` INT UNSIGNED NOT NULL,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -127,7 +127,7 @@ DROP TABLE IF EXISTS `turnos_app`.`servicio` ;
 CREATE TABLE IF NOT EXISTS `turnos_app`.`servicio` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `servicio` VARCHAR(45) NOT NULL,
-  `precio` INT NOT NULL,
+  `precio` INT NULL,
   `descripcion` TEXT NULL,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -145,6 +145,7 @@ CREATE TABLE IF NOT EXISTS `turnos_app`.`turno` (
   `servicio_id` INT UNSIGNED NOT NULL,
   `administrador_id` INT UNSIGNED NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
+  `apellido` VARCHAR(45) NULL,
   `telefono` VARCHAR(45) NOT NULL,
   `telefono_dos` VARCHAR(45) NULL,
   `fecha_turno` DATETIME NOT NULL,
