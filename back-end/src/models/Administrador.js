@@ -1,5 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const TipoDocumento = require('../models/TipoDocumento');
+const Sexo = require('../models/Sexo');
+const Rol = require('../models/Rol');
+const Estado = require('../models/Estado');
 
 const Administrador = sequelize.define('Administrador', {
     id: {
@@ -63,6 +67,26 @@ const Administrador = sequelize.define('Administrador', {
     tableName: 'administrador',
     timestamps: true,
     underscored: true,
+  });
+
+  Administrador.belongsTo(TipoDocumento, {
+    foreignKey: 'tipo_documento_id',
+    as: 'tipoDocumento',
+  });
+
+  Administrador.belongsTo(Sexo, {
+    foreignKey: 'sexo_id',
+    as: 'sexo',
+  });
+
+  Administrador.belongsTo(Rol, {
+    foreignKey: 'rol_id',
+    as: 'rol',
+  });
+
+  Administrador.belongsTo(Estado, {
+    foreignKey: 'estado_id',
+    as: 'estado',
   });
   
   module.exports = Administrador;

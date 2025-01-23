@@ -1,5 +1,9 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const Administrador = require('../models/Administrador');
+const Estado = require('../models/Estado');
+const Servicio = require('../models/Servicio');
+const Turno = require('../models/Turno');
 
 const Turno = sequelize.define('Turno', {
     id: {
@@ -44,5 +48,20 @@ const Turno = sequelize.define('Turno', {
     timestamps: true,
     underscored: true, 
 });
+
+Turno.belongsTo(Servicio, {
+    foreignKey: 'servicio_id',
+    as: 'servicio',
+  });
+
+  Turno.belongsTo(Administrador, {
+    foreignKey: 'administrador_id',
+    as: 'administrador',
+  });
+
+  Turno.belongsTo(Estado, {
+    foreignKey: 'estado_id',
+    as: 'estado',
+  });
 
 module.exports = Turno;
