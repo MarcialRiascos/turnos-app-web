@@ -3,7 +3,7 @@ const sequelize = require('../config/db');
 
 const Sexo = sequelize.define('Sexo', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -15,6 +15,7 @@ const Sexo = sequelize.define('Sexo', {
   }, {
     tableName: 'rol',
     timestamps: true,
+    underscored: true, 
   });
   
   module.exports = Sexo;

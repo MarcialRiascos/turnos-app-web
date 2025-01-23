@@ -3,7 +3,7 @@ const sequelize = require('../config/db');
 
 const Administrador = sequelize.define('Administrador', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -36,7 +36,7 @@ const Administrador = sequelize.define('Administrador', {
         allowNull: true,
     },
     sexo_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
     email: {
@@ -52,16 +52,17 @@ const Administrador = sequelize.define('Administrador', {
         allowNull: false,
     },
     rol_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
     estado_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
   }, {
     tableName: 'administrador',
     timestamps: true,
+    underscored: true,
   });
   
   module.exports = Administrador;

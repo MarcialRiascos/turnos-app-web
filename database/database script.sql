@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `turnos_app`.`administrador` (
   `telefono_dos` VARCHAR(45) NULL,
   `sexo_id` INT UNSIGNED NOT NULL,
   `email` VARCHAR(45) NULL,
-  `fecha_nacimiento` VARCHAR(45) NULL,
+  `fecha_nacimiento` DATE NULL,
   `password` VARCHAR(255) NOT NULL,
   `rol_id` INT UNSIGNED NOT NULL,
   `estado_id` INT UNSIGNED NOT NULL,
@@ -127,7 +127,6 @@ DROP TABLE IF EXISTS `turnos_app`.`servicio` ;
 CREATE TABLE IF NOT EXISTS `turnos_app`.`servicio` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `servicio` VARCHAR(45) NOT NULL,
-  `precio` INT NULL,
   `descripcion` TEXT NULL,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

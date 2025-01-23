@@ -3,16 +3,16 @@ const sequelize = require('../config/db');
 
 const Turno = sequelize.define('Turno', {
     id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
         autoIncrement: true,
     },
     servicio_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
     administrador_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
     nombre: {
@@ -36,12 +36,13 @@ const Turno = sequelize.define('Turno', {
         allowNull: false,
     },
     estado_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
     },
 }, {
     tableName: 'rol',
     timestamps: true,
+    underscored: true, 
 });
 
 module.exports = Turno;

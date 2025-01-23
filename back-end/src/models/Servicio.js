@@ -3,7 +3,7 @@ const sequelize = require('../config/db');
 
 const Servicio = sequelize.define('Servicio', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -12,10 +12,6 @@ const Servicio = sequelize.define('Servicio', {
       allowNull: false,
       unique: true,
     },
-    precio: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
     descripcion: {
       type: DataTypes.TEXT,
       allowNull: true,
@@ -23,6 +19,7 @@ const Servicio = sequelize.define('Servicio', {
   }, {
     tableName: 'servicio',
     timestamps: true,
+    underscored: true, 
   });
   
   module.exports = Servicio;

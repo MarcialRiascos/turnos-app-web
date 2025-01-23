@@ -3,7 +3,7 @@ const sequelize = require('../config/db');
 
 const TipoDocumento = sequelize.define('TipoDocumento', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -15,6 +15,7 @@ const TipoDocumento = sequelize.define('TipoDocumento', {
   }, {
     tableName: 'tipo_documento',
     timestamps: true,
+    underscored: true, 
   });
   
   module.exports = TipoDocumento;

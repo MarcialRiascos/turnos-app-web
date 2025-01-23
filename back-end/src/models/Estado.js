@@ -3,7 +3,7 @@ const sequelize = require('../config/db');
 
 const Estado = sequelize.define('Estado', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER.UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
@@ -15,6 +15,7 @@ const Estado = sequelize.define('Estado', {
   }, {
     tableName: 'estado',
     timestamps: true,
+    underscored: true, 
   });
   
   module.exports = Estado;
